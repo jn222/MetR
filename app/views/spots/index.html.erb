@@ -1,7 +1,7 @@
 <h1>Spots</h1>
 
 <ul id="spots">
-  <% @spots.each do |article| %>
+  <% @spots.each do |spot| %>
     <li>
       <%= link_to spot.price, spot_path(spot) %>
     </li>

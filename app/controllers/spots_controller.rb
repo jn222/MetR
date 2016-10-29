@@ -1,9 +1,16 @@
 class SpotsController < ApplicationController
+  include SpotsHelper
+
+  before_filter :require_login, only: [:new, :create, :edit, :update, :destroy]
+
   def new
-    @spots = Spot.all
+    @spot = Spot.new
   end
 
   def create
+    @spot = Spot.new(spot_params)
+    @spot.save
+    redirect_to spot_path(@spot)
   end
 
   def update
@@ -16,6 +23,7 @@ class SpotsController < ApplicationController
   end
 
   def index
+    @spots = Spot.all
   end
 
   def show

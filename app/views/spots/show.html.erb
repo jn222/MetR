@@ -1,3 +1,8 @@
-<h1><%= @article.latitude %><%= @article.longitude %></h1>
-<p><%= @article.body %></p>
+<h1><%= @spot.latitude %><%= @spot.longitude %></h1>
+<p><%= @spot.user %><p>
+<p><%= image_tag @spot.image.url %></p>
+<p><%= @spot.price %></p>
+<% if logged_in? %>
+  <%= link_to "delete", spot_path(@spot), method: :delete, data: {confirm: "Really delete the article?"} %>
+<% end %>
 <%= link_to "<< Back to Spot List", spots_path %>
