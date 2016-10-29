@@ -1,0 +1,11 @@
+<h1>Spots</h1>
+
+<ul id="spots">
+  <% @spots.each do |article| %>
+    <li>
+      <%= link_to spot.price, spot_path(spot) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a New Spot", new_spot_path, class: "new_spot" %>
