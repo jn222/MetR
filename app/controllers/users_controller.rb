@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :require_login, except: [:new, :create]
-
+  require 'capital_one'
+  require 'json'
 
   # GET /users.json
   def index
@@ -28,6 +29,17 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    bank_response = createCustomer(JSON.parse('{
+	"first_name": @user.first_name,
+	"last_name": @user.last_name,
+	"address": {
+     	"street_number": @user.street_number,
+    	"street_name": @user.street_name,
+    	"city": @user.city,
+    	"state": @user.state,
+    	"zip": @user.zip              
+  	}
+	}'))
 
     respond_to do |format|
       if @user.save
@@ -72,6 +84,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation, :phone, :address, :payment)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, :phone, :street_number, :street_name, :city, :state, :zip)
     end
 end

@@ -27,13 +27,18 @@
   </div>
 
   <div class="field">
-    <%= f.label :address %></br>
-    <%= f.text_field :address %>
+    <%= f.label :first_name, 'Name' %></br>
+    <%= f.text_field :first_name %></br>
+    <%= f.text_field :last_name %>
   </div>
 
   <div class="field">
-    <%= f.label :payment, 'Bank ID' %></br>
-    <%= f.text_field :payment %>
+    Address</br>
+    <%= f.text_field :street_number %>
+    <%= f.text_field :street_name %>
+    <%= f.text_field :city %>
+    <%= f.text_field :state %>
+    <%= f.text_field :zip %>
   </div>
 
   <div class="field">

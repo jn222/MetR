@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161030131940) do
+ActiveRecord::Schema.define(version: 20161030135934) do
 
   create_table "migrations", force: :cascade do |t|
     t.string   "add_user_to_spots"
@@ -59,8 +59,14 @@ ActiveRecord::Schema.define(version: 20161030131940) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "phone"
-    t.string   "address"
-    t.string   "payment"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street_number"
+    t.string   "street_name"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.integer  "payment"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
