@@ -28,6 +28,9 @@
                 <h3>
                     <%= link_to spot.address, spot_path(spot) %>
                 </h3>
+		<h4>
+		   $<%= spot.price %>/hr
+		</h4>
                 <p><%= spot.description %></p>
             </div>
         </div>
