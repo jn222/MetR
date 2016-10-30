@@ -9,8 +9,8 @@
                 <%= spot.reservations.each do |reservation| %>
 		  <div>
 		    <h4>From <%= reservation.start %> to <%= reservation.end %></p>
-		    <h4>Made by <%= reservation.user %>.</h4>
-                    <p><strong>$<%= reservation.price%></strong></p>
+		    <h4>Made by <%= reservation.user.username %>.</h4>
+                    <p><strong>$<%= reservation.price %></strong></p>
 		  </div>
 		<% end %>
             </div>
