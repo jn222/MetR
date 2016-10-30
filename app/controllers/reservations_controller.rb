@@ -8,7 +8,6 @@ class ReservationsController < ApplicationController
     @reservation.price = @reservation.spot.price * (@reservation.end - @reservation.start)/3600
     @reservation.user_id = current_user.id
     @reservation.save
-    Config.apiKey = "a0edc2ce6ddbea44b9f8381f06919a73"
     
     redirect_to spot_path(@reservation.spot, notice:"Reservation successfully made.")
   end
