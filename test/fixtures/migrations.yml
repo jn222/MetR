@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  add_user_to_spots: MyString
+  user: one
+
+two:
+  add_user_to_spots: MyString
+  user: two

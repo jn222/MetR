@@ -10,14 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161029220932) do
+ActiveRecord::Schema.define(version: 20161030061105) do
 
-  create_table "bookings", force: :cascade do |t|
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.integer  "length"
+  create_table "migrations", force: :cascade do |t|
+    t.string   "add_user_to_spots"
+    t.integer  "user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["user_id"], name: "index_migrations_on_user_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "start"
+    t.datetime "end"
     t.integer  "spot_id"
-    t.index ["spot_id"], name: "index_bookings_on_spot_id"
+    t.integer  "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spot_id"], name: "index_reservations_on_spot_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "resources", force: :cascade do |t|
@@ -34,6 +46,11 @@ ActiveRecord::Schema.define(version: 20161029220932) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "username"
+    t.integer  "user_id"
+    t.text     "description"
+    t.string   "address"
+    t.index ["user_id"], name: "index_spots_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,6 +60,7 @@ ActiveRecord::Schema.define(version: 20161029220932) do
     t.string   "salt",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -1,11 +1,74 @@
-<h1>Spots</h1>
+<div class="container">
 
-<ul id="spots">
-  <% @spots.each do |spot| %>
-    <li>
-      <%= link_to spot.price, spot_path(spot) %>
-    </li>
-  <% end %>
-</ul>
+        <div>
+            <h3><%= link_to "Sell Your Spot!", new_spot_path, class: "new_spot" %></h3>
+        </div
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Parking Spot Listings
+                    <small>Click a spot for more details</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
 
-<%= link_to "Create a New Spot", new_spot_path, class: "new_spot" %>
+        <!-- Projects Row -->
+	<% @spots.each do |spot| %>
+        <div class="row">
+            <div class="col-md-4 portfolio-item">
+                <%= link_to image_tag(spot.image.url(:medium), :class =>"img-responsive", :alt =>"http://placehold.it/700x400"), spot_path(spot) %>
+	    </div>
+	    <div class="col-md-8">
+                <h3>
+                    <%= link_to spot.address, spot_path(spot) %>
+                </h3>
+                <p><%= spot.description %></p>
+            </div>
+        </div>
+	<% end %>
+        <hr>
+
+        <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li>
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>

@@ -1,7 +1,6 @@
 class UserSessionsController < ApplicationController
 
   def new
-    redirect_back_or_to(spots_path, notice: 'Logged in successfully.')
   end
 
   def create

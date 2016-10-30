@@ -1,0 +1,15 @@
+<h3>Schedule a reservation</h3>
+
+<%= form_for [ @spot, @reservation ] do |f| %>
+  <p>
+    Start Time: <%= f.date_select :start %>
+    <%= f.time_select :start, :ignore_date => true %>
+  </p>
+  <p>
+    End Time: <%= f.date_select :end %>
+    <%= f.time_select :end, :ignore_date => true %>
+  </p>
+  <p>
+    <%= f.submit 'Reserve', :type => 'button' %>
+  </p>
+<% end %>

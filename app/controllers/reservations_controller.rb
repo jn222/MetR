@@ -1,0 +1,16 @@
+class ReservationsController < ApplicationController
+  before_filter :require_login
+  def create
+    @reservation = Reservation.new(reservation_params)
+    @reservation.spot_id = params[:spot_id]
+    @reservation.price = @reservation.spot.price * (@reservation.end - @reservation.start)/3600
+
+    @reservation.save
+    redirect_to spot_path(@reservation.spot)
+  end
+
+  private
+    def reservation_params
+      params.require(:reservation).permit(:start, :end, :price)
+    end
+end

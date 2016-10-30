@@ -39,10 +39,12 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    autoprefixer-rails (6.5.1.1)
+      execjs
     bcrypt (3.1.11)
-    bookable (0.0.52)
-      jbuilder (~> 1.2)
-      rails_12factor
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.6)
     climate_control (0.0.3)
@@ -128,11 +130,6 @@ GEM
       nokogiri (~> 1.6.0)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails_12factor (0.0.3)
-      rails_serve_static_assets
-      rails_stdout_logging
-    rails_serve_static_assets (0.0.5)
-    rails_stdout_logging (0.0.5)
     railties (5.0.0.1)
       actionpack (= 5.0.0.1)
       activesupport (= 5.0.0.1)
@@ -190,7 +187,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bookable
+  bootstrap-sass
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 1.2)

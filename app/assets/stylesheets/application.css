@@ -12,4 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap.min
+ *= require bootstrap
+ *= require stylish-portfolio
  */
+body { 
+    padding-top: 65px; 
+}

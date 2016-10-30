@@ -9,7 +9,10 @@ class SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params)
+    @spot.username = current_user.username
+    @spot.user = current_user
     @spot.save
+    flash.notice = "Spot created!"
     redirect_to spot_path(@spot)
   end
 
@@ -28,5 +31,8 @@ class SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
+    @reservation = Reservation.new
+    @reservation.spot_id = @spot.id
+    @user = current_user
   end
 end

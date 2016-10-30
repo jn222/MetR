@@ -1,3 +1,4 @@
+<div class="col-md-8">
 <h1>Create a New Spot</h1>
 
 <%= form_for(@spot) do |f| %>
@@ -7,17 +8,30 @@
   <% end %>
   </ul>
   <p>
-    <%= f.range_field :price, in: 1..100 %><br />
+    Set your hourly price
+    <%= f.range_field :price, in: 1..100, class: "slider-width150", value: 0, onchange: "showValue(this.value)" %> $<span id="range">0</span>/hr
+  </p>
+	<script type="text/javascript">
+	function showValue(newValue)
+	{
+		document.getElementById("range").innerHTML=newValue;
+	}
+	</script>
+  <p>
+    Address</br>
+    <%= f.text_field :address %>
   </p>
   <p>
-    <%= f.text_area :latitude %><br />
-    <%= f.text_area :longitude %>
+    Description</br>
+    <%= f.text_area :description %>
   </p>
   <p>
     <%= f.label :image, "Attach an Image" %><br />
     <%= f.file_field :image %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit "Create My Spot" %>
   </p>
 <% end %>
+<h5><%= link_to "Back", spots_path %><h5>
+</div>
