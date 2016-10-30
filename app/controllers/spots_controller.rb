@@ -23,6 +23,9 @@ class SpotsController < ApplicationController
   end
 
   def destroy
+    @spot = Spot.find(params[:id])
+    @spot.destroy
+    redirect_to spots_path, alert: "Listing deleted."
   end
 
   def index

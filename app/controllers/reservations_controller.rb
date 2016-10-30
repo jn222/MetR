@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
     @reservation.user_id = current_user.id
     @reservation.save
     
-    redirect_to spot_path(@reservation.spot, notice:"Reservation successfully made.")
+    redirect_to spot_path@reservation.spot, notice:"Reservation successfully made."
   end
 
   private

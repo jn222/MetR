@@ -3,7 +3,7 @@
         <!-- Portfolio Item Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Title
+                <h1 class="page-header"><%= @spot.address %>
                 </h1>
             </div>
         </div>
@@ -17,14 +17,13 @@
             </div>
 
             <div class="col-md-8">
-		<h1><%= @spot.address %></h1>
                 <h3><%= @spot.price %>/hr</h3>
                 <p><%= @spot.description %></p>
 
                 <h3>Sold by <%= @spot.username %></h3>
                 <p><%= @spot.user.phone%></p>
     		<% if logged_in? and @spot.user_id = current_user.id %>
-		  <p><%= link_to "delete", spot_path(@spot), method: :delete, data: {confirm: "Really delete the article?"} %></p>
+		  <p><%= link_to "delete", spot_path(@spot), method: :delete, data: {confirm: "Really delete this listing?"} %></p>
                 <% end %>
             </div>
 
