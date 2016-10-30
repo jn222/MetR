@@ -4,9 +4,9 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.spot_id = params[:spot_id]
     @reservation.price = @reservation.spot.price * (@reservation.end - @reservation.start)/3600
-
+    @reservation.user_id = current_user.id
     @reservation.save
-    redirect_to spot_path(@reservation.spot)
+    redirect_to spot_path(@reservation.spot, notice:"Reservation successfully made.")
   end
 
   private

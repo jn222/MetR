@@ -1,24 +1,16 @@
-<p id="notice"><%= notice %></p>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#reservations">Your reservations</a></li>
+  <li><a data-toggle="tab" href="#spots">Your spots</a></li>
+</ul>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<p>
-  <strong>Password confirmation:</strong>
-  <%= @user.password_confirmation %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<div class="tab-content">
+  <div id="reservations" class="tab-pane fade in active">
+    <h3>Your Reservations</h3>
+    <%= render partial: "users/reservation", collection: @user.reservations %>
+  </div>
+  <div id="spots" class="tab-pane fade">
+    <h3>Your Spots</h3>
+    <%= render partial: "users/spot", collection: @user.spots %>
+  </div>
+</div>
 <%= link_to 'Back', users_path %>
