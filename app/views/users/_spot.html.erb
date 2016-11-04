@@ -6,7 +6,7 @@
                 <h3>
                     <%= link_to spot.address, spot_path(spot) %>
                 </h3>
-                <%= spot.reservations.each do |reservation| %>
+                <% spot.reservations.each do |reservation| %>
 		  <div>
 		    <h4>From <%= reservation.start %> to <%= reservation.end %></p>
 		    <h4>Made by <%= reservation.user.username %>.</h4>

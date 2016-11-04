@@ -22,7 +22,7 @@
 
                 <h3>Sold by <%= @spot.username %></h3>
                 <p><%= @spot.user.phone%></p>
-    		<% if logged_in? and @spot.user_id = current_user.id %>
+    		<% if logged_in? and @spot.user_id == current_user.id %>
 		  <p><%= link_to "delete", spot_path(@spot), method: :delete, data: {confirm: "Really delete this listing?"} %></p>
                 <% end %>
             </div>

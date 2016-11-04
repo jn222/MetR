@@ -4,7 +4,14 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+#group :production do
+  gem 'pg'
+#end
+
+#group :development, :test do
+#  gem 'sqlite3'
+#end
+
 gem 'capital_one', '~> 0.4.3'
 gem 'bootstrap-sass'
 gem 'paperclip'
